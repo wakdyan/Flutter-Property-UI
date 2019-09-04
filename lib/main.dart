@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:property_app/assets.dart';
+import 'package:property_app/detail_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -60,10 +61,11 @@ class _MyAppState extends State<MyApp> {
                         text: TextSpan(
                           text: 'Welcome back Uran, ',
                           style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: .8),
+                            fontSize: 16,
+                            color: Colors.black,
+                            // fontWeight: FontWeight.w600,
+                            // letterSpacing: .8,
+                          ),
                           children: [
                             TextSpan(
                               text:
@@ -208,25 +210,25 @@ class _MyAppState extends State<MyApp> {
                                     Padding(
                                       padding: const EdgeInsets.only(left: 15),
                                       child: Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orangeAccent,
-                                          size: 18,
-                                        ),
-                                        Text(
-                                          rating[index],
-                                          style: TextStyle(
-                                              color: Colors.orangeAccent),
-                                        )
-                                      ],
-                                  ),
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.star,
+                                            color: Colors.orangeAccent,
+                                            size: 18,
+                                          ),
+                                          Text(
+                                            ratings[index],
+                                            style: TextStyle(
+                                                color: Colors.orangeAccent),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
                                 Text('Resindetial, Uni/Flat',
-                                    style: TextStyle(fontSize: 12)),
-                                    
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.black38)),
                               ],
                             ),
                           ),
@@ -258,15 +260,28 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
-                        child: Container(
-                          height: 280,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: NetworkImage(residentialImages[index]),
-                                  fit: BoxFit.cover)),
+                        child: GestureDetector(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => DetailPage(
+                                residentialImage: residentialImages[index],
+                                profileImage: profileImages[index],
+                                profileName: profileNames[index],
+                                rating: ratings[index],
+                              ),
+                            ),
+                          ),
+                          child: Container(
+                            height: 280,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image:
+                                        NetworkImage(residentialImages[index]),
+                                    fit: BoxFit.cover)),
+                          ),
                         ),
                       )
                     ],
@@ -291,7 +306,8 @@ class _MyAppState extends State<MyApp> {
             type: BottomNavigationBarType.fixed,
             selectedIconTheme: IconThemeData(color: Color(0xFF2cca73)),
             selectedItemColor: Colors.black,
-            selectedFontSize: 10,
+            selectedFontSize: 12,
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
             unselectedItemColor: Colors.black26,
             iconSize: 26,
             items: [
@@ -313,9 +329,8 @@ class _MyAppState extends State<MyApp> {
                       boxShadow: [
                         BoxShadow(
                             color: Color(0xFF2cca73),
-                            offset: Offset(0, 3),
-                            blurRadius: 10,
-                            spreadRadius: 1),
+                            offset: Offset(0, .5),
+                            blurRadius: 5),
                       ]),
                   child: Icon(Icons.add, color: Colors.white, size: 30),
                 ),

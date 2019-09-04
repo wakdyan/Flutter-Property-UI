@@ -1,6 +1,6 @@
 ## Overview
 
-<img src="https://github.com/wakdyan/Flutter-Property-UI/blob/master/assets/Home%20Page.png?raw=true" width="271" height="462" />
+<img src="https://github.com/wakdyan/Flutter-Property-UI/blob/master/assets/Home%20Page.png?raw=true" width="271" height="462" /> <img src="https://github.com/wakdyan/Flutter-Property-UI/blob/master/assets/Detail%20Page.png?raw=true" width="271" height="462" />
 
 ## Getting Started
 

@@ -17,7 +17,7 @@ var residentialImages = [
   'https://i.pinimg.com/564x/8d/f8/20/8df820435dbf73ac9e4f68bfcf2a6cee.jpg'
 ];
 
-var rating = [
+var ratings = [
   '4.5',
   '4.0',
   '4.7'
